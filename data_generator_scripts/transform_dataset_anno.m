@@ -1,5 +1,5 @@
 % transform original xml file annotations to overlay masks
-// data_filefolder = '/data2/cong/kumar/monuseg/train/MoNuSeg_Training_Data';
+% data_filefolder = '/data2/cong/kumar/monuseg/train/MoNuSeg_Training_Data';
 data_filefolder = '/content/train_data';
 save_path = '.';
 
