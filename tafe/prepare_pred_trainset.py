@@ -36,7 +36,7 @@ norm_std=[0.229, 0.224, 0.225]
 data_filefold = '/content/brp_data'
 
 # Predictions of the whole training set
-imgs = np.load(os.path.join(data_filefold, 'data_after_stain_norm_ref1.npy')) # .mat of train set
+imgs = np.load(os.path.join(data_filefold, 'data_after_stain_norm_ref1.npy'),allow_pickle=True).item()['train_imgs'] # .mat of train set
 imgs = imgs.transpose([0, 3, 1, 2]).astype(np.float32)
 ndata, mod, h0, w0 = imgs.shape
 for imod in range(mod):
