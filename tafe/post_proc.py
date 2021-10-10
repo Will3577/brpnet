@@ -61,11 +61,12 @@ def post_proc(output, cutoff=0.5, cutoff_instance_max=0.3, cutoff_instance_avg=0
         filtered_instances.append(instance)
         scores.append(instance_score_avg)
     instances = filtered_instances
-
+    print(instances)
     # dilation
     instances_tmp = []
     if post_dilation_iter > 0:
         for instance in filtered_instances:
+            
             instance = ndimage.morphology.binary_dilation(instance, iterations=post_dilation_iter)
             instances_tmp.append(instance)
         instances = instances_tmp
