@@ -43,6 +43,7 @@ def post_proc(output, cutoff=0.5, cutoff_instance_max=0.3, cutoff_instance_avg=0
     
     cutoffed = output > cutoff
     lab_img = label(cutoffed, connectivity=1)
+    print(lab_img.max())
     instances = []
     # pdb.set_trace()
     for i in range(1, lab_img.max() + 1):
