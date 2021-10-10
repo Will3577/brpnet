@@ -48,4 +48,5 @@ for i in range(ndata):
     cpred /= count
     lbl_d0 = post_proc(spred-cpred, post_dilation_iter=0).astype(np.uint16)
     lbl_d2 = post_proc(spred-cpred, post_dilation_iter=2).astype(np.uint16)
+    print("saving",i)
     scio.savemat(os.path.join(save_dir, 'pred_res_'+str(i)+'_withpostproc.mat'), {'s':spred.astype(np.float32), 'c':cpred.astype(np.float32), 'instance':lbl_d2, 'instance_nodilation':lbl_d0})

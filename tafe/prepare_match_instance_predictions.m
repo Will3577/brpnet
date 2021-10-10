@@ -1,7 +1,7 @@
 dgt = load('/data2/cong/kumar/Kumar_data/dataset/train/gt.mat');
 gt = dgt.train_gts;
 
-predfilefold = './train/tafe_4fold_epoch600/';
+predfilefold = './train/tafe_4fold_epoch8/';
 
 for ths = [5] %[1,2,3,4,5，6,7,8]
     predmatchgt = zeros(size(gt));
