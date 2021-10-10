@@ -41,8 +41,8 @@ class KumarDataset(torch.utils.data.Dataset):
         # self.imgs = self.imgs[list]
         self.imgs = [self.imgs[i] for i in list]
 
-        self.seg_labels = np.load(os.path.join(loc_head, 'gt.npy'))#.item()['train_imgs']
-        print(self.seg_labels)
+        self.seg_labels = np.load(os.path.join(loc_head, 'gt.npy')).item()['segs']
+        # print(self.seg_labels)
         # self.seg_labels = self.seg_labels[list]
         self.seg_labels = [self.seg_labels[i] for i in list]
         # Instance labels to segmentation labels
