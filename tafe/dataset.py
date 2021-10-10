@@ -38,8 +38,8 @@ class KumarDataset(torch.utils.data.Dataset):
 
         self.imgs = np.load(os.path.join(loc_head, 'data_after_stain_norm_ref1.npy'))#['train_imgs']
         print(list,type(list),type(self.imgs),self.imgs.shape)
-        # self.imgs = self.imgs[list]
-        self.imgs = [self.imgs[i] for i in list]
+        self.imgs = self.imgs[list,:]
+        # self.imgs = [self.imgs[i] for i in list]
 
         self.seg_labels = np.load(os.path.join(loc_head, 'gt.npy'))
         # self.seg_labels = self.seg_labels[list]
