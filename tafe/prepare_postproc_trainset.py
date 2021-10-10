@@ -8,11 +8,11 @@ from custom import *
 
 ndata = 16
 ntrain = 4
-save_cp_after_n_epoch = 20
+save_cp_after_n_epoch = 8#20
 
-net_val_dir = './train/tafe_4fold_epoch600'
+net_val_dir = './train/tafe_4fold_epoch8'
 
-save_dir = './train/tafe_4fold_epoch600'
+save_dir = './train/tafe_4fold_epoch8'
 
 # Select From Trained Models
 # TAFE:

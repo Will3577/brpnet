@@ -53,6 +53,7 @@ snapshot_lists = [[27], [4], [9], [8]]
 # snapshot_lists = [[10], [4], [20], [15]]
 
 for itrain in list(range(0, ntrain)):
+    print(itrain)
     dir_checkpoint = 'weight/'+net_name+'/rnd_'+str(itrain)+'/'
     dir_savefile = 'train/'+net_name+'/rnd_'+str(itrain)+'/'
     confirm_loc(dir_savefile)
