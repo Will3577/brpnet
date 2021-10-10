@@ -64,7 +64,7 @@ for itrain in list(range(0, ntrain)):
     with torch.no_grad():
         for isnapshot in snapshot_list:
             confirm_loc(dir_savefile + 'snapshot_' + str(isnapshot*save_cp_after_n_epoch)+ '/')
-            weight_loc = dir_checkpoint+'model_of_'+str(isnapshot*save_cp_after_n_epoch)+'.pth'
+            weight_loc = dir_checkpoint+'model_of_'+'8.pth'#str(isnapshot*save_cp_after_n_epoch)+'.pth'
             if not(os.path.exists(weight_loc)):
                 continue
 
