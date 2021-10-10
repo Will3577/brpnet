@@ -13,8 +13,12 @@ kfold_train_idx, kfold_val_idx = kfold_list(ndata, ntrain, seed=123)
 max_epoch = 600
 save_step = 20
 
-net_val_dir = '/data0/cong/workplace/kumar_5fold/val/baseline_4fold_epoch600'
-gts = np.load('/home/cong/workplace/kumar/gt.npy').astype(np.uint16)
+# net_val_dir = '/data0/cong/workplace/kumar_5fold/val/baseline_4fold_epoch600'
+net_val_dir = '/data0/cong/workplace/kumar_5fold/val/baseline_4fold_epoch1'
+
+# gts = np.load('/home/cong/workplace/kumar/gt.npy').astype(np.uint16)
+gts = np.load('/content/brp_data/gt.npy').item()['segs'].astype(np.uint16)
+
 for itrain in range(ntrain):
     ajis_allcp = []
     pred_dir = os.path.join(net_val_dir, 'rnd_'+str(itrain))
