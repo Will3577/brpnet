@@ -10,11 +10,11 @@ ndata = 16
 ntrain = 4
 kfold_train_idx, kfold_val_idx = kfold_list(ndata, ntrain, seed=123)
 
-max_epoch = 3#600
-save_step = 3#20
+max_epoch = 8#600
+save_step = 8#20
 
 # net_val_dir = '/data0/cong/workplace/kumar_5fold/val/baseline_4fold_epoch600'
-net_val_dir = '/content/brpnet/tafe/val/baseline_4fold_epoch3'
+net_val_dir = '/content/brpnet/tafe/val/baseline_4fold_epoch8'
 
 # gts = np.load('/home/cong/workplace/kumar/gt.npy').astype(np.uint16)
 gts = np.load('/content/brp_data/gt.npy',allow_pickle=True).item()['segs'].astype(np.uint16)
