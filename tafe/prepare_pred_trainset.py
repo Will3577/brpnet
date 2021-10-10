@@ -66,6 +66,7 @@ for itrain in list(range(0, ntrain)):
             confirm_loc(dir_savefile + 'snapshot_' + str(isnapshot*save_cp_after_n_epoch)+ '/')
             weight_loc = dir_checkpoint+'model_of_'+'8.pth'#str(isnapshot*save_cp_after_n_epoch)+'.pth'
             if not(os.path.exists(weight_loc)):
+                print("path not found")
                 continue
 
             weight = torch.load(weight_loc, map_location=lambda storage, loc: storage.cuda())
