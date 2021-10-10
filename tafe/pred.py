@@ -75,7 +75,7 @@ def processing_func(pred_dir, i, post_dilation_iter=2):
     scio.savemat(pred_dir+str(i)+'.mat', {'instance':lab_img, 's':s, 'c':c})
     print(str(i)+' th obj finished!')
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "2"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 torch.set_num_threads(8)
 
 n_pred_labels_type = 1

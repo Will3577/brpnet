@@ -18,7 +18,7 @@ torch.set_num_threads(8)
 
 batch_size = 3
 val_batch_size = 2
-MAX_epoch = 600
+MAX_epoch = 1#600
 save_cp_after_n_epoch = 20
 
 loaded_epoch = -1
