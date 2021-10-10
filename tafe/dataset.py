@@ -41,18 +41,18 @@ class KumarDataset(torch.utils.data.Dataset):
         self.imgs = self.imgs[list]
         # self.imgs = [self.imgs[i] for i in list]
 
-        self.seg_labels = np.array(np.load(os.path.join(loc_head, 'gt.npy'),allow_pickle=True).item()['segs'])
+        self.seg_labels = np.load(os.path.join(loc_head, 'gt.npy'))#,allow_pickle=True).item()['segs'])
         # print(self.seg_labels)
-        # self.seg_labels = self.seg_labels[list]
-        self.seg_labels = [self.seg_labels[i] for i in list]
+        self.seg_labels = self.seg_labels[list]
+        # self.seg_labels = [self.seg_labels[i] for i in list]
         # Instance labels to segmentation labels
-        # self.seg_labels[self.seg_labels>0] = 1
+        self.seg_labels[self.seg_labels>0] = 1
 
-        self.bnd_labels = np.load(os.path.join(loc_head, 'bnd.npy'),allow_pickle=True).item()['bnds']
+        self.bnd_labels = np.load(os.path.join(loc_head, 'bnd.npy'))#,allow_pickle=True).item()['bnds']
         # print(self.bnd_labels)
-        # self.bnd_labels = self.bnd_labels[list]
+        self.bnd_labels = self.bnd_labels[list]
         
-        self.bnd_labels = [self.bnd_labels[i] for i in list]
+        # self.bnd_labels = [self.bnd_labels[i] for i in list]
         
         self.naug = 6#ori*1 + rotate*3 + flip*2
         self.nimg = len(self.imgs)
