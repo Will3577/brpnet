@@ -82,8 +82,8 @@ n_pred_labels_type = 1
 n_pred_labels_bnd = 1
 input_modalities = 3
 batch_sz = 4
-MAX_epoch = 1#600
-save_cp_after_n_epoch = 1#20
+MAX_epoch = 3#600
+save_cp_after_n_epoch = 3#20
 aug_list = ['ori', 'rot90', 'rot180', 'rot270', 'flip_h', 'flip_w']
 
 ndata = 16

@@ -10,8 +10,8 @@ ndata = 16
 ntrain = 4
 kfold_train_idx, kfold_val_idx = kfold_list(ndata, ntrain, seed=123)
 
-max_epoch = 1#600
-save_step = 1#20
+max_epoch = 3#600
+save_step = 3#20
 
 # net_val_dir = '/data0/cong/workplace/kumar_5fold/val/baseline_4fold_epoch600'
 net_val_dir = '/content/brpnet/tafe/val/baseline_4fold_epoch1'
