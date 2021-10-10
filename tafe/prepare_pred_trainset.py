@@ -60,6 +60,7 @@ for itrain in list(range(0, ntrain)):
     sigmoid = nn.Sigmoid()
 
     snapshot_list = snapshot_lists[itrain]
+    print(snapshot_list)
     with torch.no_grad():
         for isnapshot in snapshot_list:
             confirm_loc(dir_savefile + 'snapshot_' + str(isnapshot*save_cp_after_n_epoch)+ '/')
