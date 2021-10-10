@@ -14,7 +14,7 @@ max_epoch = 600
 save_step = 20
 
 # net_val_dir = '/data0/cong/workplace/kumar_5fold/val/baseline_4fold_epoch600'
-net_val_dir = '/data0/cong/workplace/kumar_5fold/val/baseline_4fold_epoch1'
+net_val_dir = '/content/brpnet/tafe/weight/baseline_4fold_epoch1'
 
 # gts = np.load('/home/cong/workplace/kumar/gt.npy').astype(np.uint16)
 gts = np.load('/content/brp_data/gt.npy').item()['segs'].astype(np.uint16)
