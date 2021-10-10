@@ -97,7 +97,7 @@ norm_std=[0.229, 0.224, 0.225]
 # valdata_filefold = '/home/cong/workplace/kumar'
 valdata_filefold = '/content/brp_data'
 
-imgs = np.load(os.path.join(valdata_filefold, 'data_after_stain_norm_ref1.npy')).item()['train_imgs']
+imgs = np.load(os.path.join(valdata_filefold, 'data_after_stain_norm_ref1.npy'),allow_pickle=True).item()['train_imgs']
 imgs = imgs.transpose([0, 3, 1, 2]).astype(np.float32)
 ndata, mod, h0, w0 = imgs.shape
 for imod in range(mod):
