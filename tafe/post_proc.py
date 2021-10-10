@@ -51,6 +51,7 @@ def post_proc(output, cutoff=0.2, cutoff_instance_max=0.3, cutoff_instance_avg=0
 
     filtered_instances = []
     scores = []
+    print(instances)
     for instance in instances:
         # TODO : max or avg?
         instance_score_max = np.max(instance * output)    # score max
