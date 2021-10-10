@@ -20,6 +20,7 @@ net_val_dir = '/content/brpnet/tafe/val/baseline_4fold_epoch1'
 gts = np.load('/content/brp_data/gt.npy').item()['segs'].astype(np.uint16)
 
 for itrain in range(ntrain):
+    print(itrain)
     ajis_allcp = []
     pred_dir = os.path.join(net_val_dir, 'rnd_'+str(itrain))
     for i_cp in range(save_step, max_epoch+1, save_step):
