@@ -53,7 +53,6 @@ snapshot_lists = [[27], [4], [9], [8]]
 # snapshot_lists = [[10], [4], [20], [15]]
 
 for itrain in list(range(0, ntrain)):
-    print(itrain)
     dir_checkpoint = 'weight/'+net_name+'/rnd_'+str(itrain)+'/'
     dir_savefile = 'train/'+net_name+'/rnd_'+str(itrain)+'/'
     confirm_loc(dir_savefile)
@@ -78,6 +77,7 @@ for itrain in list(range(0, ntrain)):
             target_dict.update(source_dict2)
             net.load_state_dict(target_dict)
             net.eval()
+            print(itrain, isnapshot)
 
             for i_data in range(ndata):
                 print('Processing ' + str(i_data) + ' obj in ' + str(isnapshot*save_cp_after_n_epoch))
