@@ -32,7 +32,7 @@ def remove_overlaps(instances, scores):
         new_scores.append(scores[i - 1])
     return instances, new_scores
     
-def post_proc(output, cutoff=0.5, cutoff_instance_max=0.3, cutoff_instance_avg=0.2, post_dilation_iter=2, post_fill_holes=True):
+def post_proc(output, cutoff=0.1, cutoff_instance_max=0.3, cutoff_instance_avg=0.2, post_dilation_iter=2, post_fill_holes=True):
     """
     Split 1-channel merged output for instance segmentation
     :param cutoff:
