@@ -12,11 +12,13 @@
 
 import scipy.io
 import numpy as np
-from tempfile import TemporaryFile
-outfile = TemporaryFile()
-mat = scipy.io.loadmat('/Users/will/Downloads/MATLAB/data_generator_scripts/train_bnd.mat')
-print(type(mat))
-np.save('/Users/will/Downloads/MATLAB/data_generator_scripts/bnd.npy', mat)
+# from tempfile import TemporaryFile
+# outfile = TemporaryFile()
+# mat = scipy.io.loadmat('/Users/will/Downloads/MATLAB/data_generator_scripts/train_seg.mat')
+mat = scipy.io.loadmat('/Users/will/Downloads/MATLAB/data_generator_scripts/train/data_after_stain_norm_ref1.mat')
+
+print(mat)
+np.save('/Users/will/Downloads/MATLAB/data_generator_scripts/train/data_after_stain_norm_ref1.npy', mat,allow_pickle=False,fix_imports=False)
 
 
 
