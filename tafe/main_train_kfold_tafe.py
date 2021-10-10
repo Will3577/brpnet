@@ -19,7 +19,7 @@ torch.set_num_threads(8)
 batch_size = 3
 val_batch_size = 2
 MAX_epoch = 1#600
-save_cp_after_n_epoch = 20
+save_cp_after_n_epoch = 1#20
 
 loaded_epoch = -1
 n_pred_labels_type = 1
@@ -183,7 +183,7 @@ for iseed in list(range(ntrain)):
         dslosses.append(meandsloss_epoch)
         meandcloss_epoch = np.array(dclosses_insideepoch).mean()
         dclosses.append(meandcloss_epoch)
-        if np.mod(i+1, save_cp_after_n_epoch)==0 and i>0:
+        if np.mod(i+1, save_cp_after_n_epoch)==0 and i>=0:
             torch.save(net.state_dict(), dir_checkpoint + 'model_of_' + str(i+1) + '.pth')
             #torch.save(optimizer.state_dict(), dir_checkpoint + 'optim_of_' + str(i+1) + '.pth')
             scio.savemat(dir_checkpoint+'losses.mat', {'s':np.array(slosses), 'c':np.array(closses), 'ds':np.array(dslosses), 'dc':np.array(dclosses)})
