@@ -74,15 +74,15 @@ def processing_func(pred_dir, i, post_dilation_iter=2):
     scio.savemat(pred_dir+str(i)+'.mat', {'instance':lab_img, 's':s, 'c':c})
     print(str(i)+' th obj finished!')
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 torch.set_num_threads(8)
 
 n_pred_labels_type = 1
 n_pred_labels_bnd = 1
 input_modalities = 3
 batch_sz = 4
-MAX_epoch = 600
-save_cp_after_n_epoch = 20
+MAX_epoch = 1#600
+save_cp_after_n_epoch = 1#20
 aug_list = ['ori', 'rot90', 'rot180', 'rot270', 'flip_h', 'flip_w']
 
 ndata = 14
@@ -92,8 +92,9 @@ ntrain = 4
 # Image Net mean and std
 norm_mean=[0.485, 0.456, 0.406]
 norm_std=[0.229, 0.224, 0.225]
-valdata_filefold = '/home/cong/workplace/kumar'
-imgs = np.load(os.path.join(valdata_filefold, 'valdata_after_stain_norm_mm_ref1.npy'))
+# valdata_filefold = '/home/cong/workplace/kumar'
+valdata_filefold = '/content/brp_data'
+imgs = np.load(os.path.join(valdata_filefold, 'valdata_after_stain_norm_mm_ref1.npy')).item()['val_imgs']
 imgs = imgs.transpose([0, 3, 1, 2]).astype(np.float32)
 v, mod, h0, w0 = imgs.shape
 for imod in range(mod):
