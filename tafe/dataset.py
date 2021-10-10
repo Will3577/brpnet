@@ -46,7 +46,7 @@ class KumarDataset(torch.utils.data.Dataset):
         # self.seg_labels = self.seg_labels[list]
         self.seg_labels = [self.seg_labels[i] for i in list]
         # Instance labels to segmentation labels
-        self.seg_labels[self.seg_labels>0] = 1
+        # self.seg_labels[self.seg_labels>0] = 1
 
         self.bnd_labels = np.load(os.path.join(loc_head, 'bnd.npy'))#.item()['train_imgs']
         print(self.bnd_labels)
