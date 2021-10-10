@@ -36,19 +36,19 @@ class KumarDataset(torch.utils.data.Dataset):
     def __init__(self, loc_head, list, crop_size=[256, 256]):
         self.loc_head = loc_head
 
-        self.imgs = np.load(os.path.join(loc_head, 'data_after_stain_norm_ref1.npy')).item()['train_imgs']
+        self.imgs = np.load(os.path.join(loc_head, 'data_after_stain_norm_ref1.npy'),allow_pickle=True).item()['train_imgs']
         # print(list,type(list),self.imgs,self.imgs.shape)
         # self.imgs = self.imgs[list]
         self.imgs = [self.imgs[i] for i in list]
 
-        self.seg_labels = np.array(np.load(os.path.join(loc_head, 'gt.npy')).item()['segs'])
+        self.seg_labels = np.array(np.load(os.path.join(loc_head, 'gt.npy'),allow_pickle=True).item()['segs'])
         # print(self.seg_labels)
         # self.seg_labels = self.seg_labels[list]
         self.seg_labels = [self.seg_labels[i] for i in list]
         # Instance labels to segmentation labels
         # self.seg_labels[self.seg_labels>0] = 1
 
-        self.bnd_labels = np.load(os.path.join(loc_head, 'bnd.npy')).item()['bnds']
+        self.bnd_labels = np.load(os.path.join(loc_head, 'bnd.npy'),allow_pickle=True).item()['bnds']
         # print(self.bnd_labels)
         # self.bnd_labels = self.bnd_labels[list]
         
