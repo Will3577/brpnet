@@ -69,7 +69,7 @@ def post_proc(output, cutoff=0.5, cutoff_instance_max=0.3, cutoff_instance_avg=0
             instance = ndimage.morphology.binary_dilation(instance, iterations=post_dilation_iter)
             instances_tmp.append(instance)
         instances = instances_tmp
-
+    print(instances)
     # sorted by size
     sorted_idx = [i[0] for i in sorted(enumerate(instances), key=lambda x: get_size_of_mask(x[1]))]
     instances = [instances[x] for x in sorted_idx]
