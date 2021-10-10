@@ -18,22 +18,22 @@ from DenseEncoderIAMUShapeDecoder import *
 #from baseline_faircmp import * 
 from custom import *
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "5"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 torch.set_num_threads(8)
 
 n_pred_labels_type = 1
 n_pred_labels_bnd = 1
 input_modalities = 3
 batch_sz = 4
-MAX_epoch = 600
-save_cp_after_n_epoch = 20
+MAX_epoch = 8#600
+save_cp_after_n_epoch = 8#20
 aug_list = ['ori', 'rot90', 'rot180', 'rot270', 'flip_h', 'flip_w']
 
 # Image Net mean and std
 norm_mean=[0.485, 0.456, 0.406]
 norm_std=[0.229, 0.224, 0.225]
-data_filefold = '/home/cong/workplace/kumar'
-
+# data_filefold = '/home/cong/workplace/kumar'
+data_filefold = '/content/brp_data'
 # Predictions of the whole test set
 imgs = np.load(os.path.join(data_filefold, 'valdata_after_stain_norm_mm_ref1.npy'))
 imgs = imgs.transpose([0, 3, 1, 2]).astype(np.float32)

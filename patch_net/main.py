@@ -15,7 +15,7 @@ from adamw_r.adamw import AdamW
 from adamw_r.cyclic_scheduler import CyclicLRWithRestarts, ReduceMaxLROnRestart
 from dataset import *
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 torch.set_num_threads(8)
 
 reszs = [48, 176]
