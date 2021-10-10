@@ -86,6 +86,7 @@ def post_proc(output, cutoff=0.5, cutoff_instance_max=0.3, cutoff_instance_avg=0
     # instances = [np.expand_dims(i, axis=2) for i in instances]
     # scores = np.array(scores)
     # scores = np.expand_dims(scores, axis=1)
+    print(instances)
     lab_img = np.zeros(instances[0].shape, dtype=np.int32)
     for i, instance in enumerate(instances):
         lab_img = np.maximum(lab_img, instance * (i + 1))
