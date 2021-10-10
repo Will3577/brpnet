@@ -32,7 +32,7 @@ def remove_overlaps(instances, scores):
         new_scores.append(scores[i - 1])
     return instances, new_scores
     
-def post_proc(output, cutoff=0.2, cutoff_instance_max=0.3, cutoff_instance_avg=0.2, post_dilation_iter=2, post_fill_holes=True):
+def post_proc(output, cutoff=0.5, cutoff_instance_max=0.3, cutoff_instance_avg=0.2, post_dilation_iter=2, post_fill_holes=True):
     """
     Split 1-channel merged output for instance segmentation
     :param cutoff:
@@ -43,7 +43,7 @@ def post_proc(output, cutoff=0.2, cutoff_instance_max=0.3, cutoff_instance_avg=0
     
     cutoffed = output > cutoff
     lab_img = label(cutoffed, connectivity=1)
-    print(lab_img.max())
+    # print(lab_img)
     instances = []
     # pdb.set_trace()
     for i in range(1, lab_img.max() + 1):
@@ -51,7 +51,7 @@ def post_proc(output, cutoff=0.2, cutoff_instance_max=0.3, cutoff_instance_avg=0
 
     filtered_instances = []
     scores = []
-    print(instances)
+    # print(instances)
     for instance in instances:
         # TODO : max or avg?
         instance_score_max = np.max(instance * output)    # score max
@@ -63,7 +63,7 @@ def post_proc(output, cutoff=0.2, cutoff_instance_max=0.3, cutoff_instance_avg=0
         filtered_instances.append(instance)
         scores.append(instance_score_avg)
     instances = filtered_instances
-    print(instances)
+    # print(instances)
     # dilation
     instances_tmp = []
     if post_dilation_iter > 0:
@@ -72,11 +72,11 @@ def post_proc(output, cutoff=0.2, cutoff_instance_max=0.3, cutoff_instance_avg=0
             instance = ndimage.morphology.binary_dilation(instance, iterations=post_dilation_iter)
             instances_tmp.append(instance)
         instances = instances_tmp
-    print(instances)
+    # print(instances)
     # sorted by size
     sorted_idx = [i[0] for i in sorted(enumerate(instances), key=lambda x: get_size_of_mask(x[1]))]
     instances = [instances[x] for x in sorted_idx]
-    print(instances)
+    # print(instances)
     scores = [scores[x] for x in sorted_idx]
 
     # make sure there are no overlaps
@@ -90,7 +90,7 @@ def post_proc(output, cutoff=0.2, cutoff_instance_max=0.3, cutoff_instance_avg=0
     # instances = [np.expand_dims(i, axis=2) for i in instances]
     # scores = np.array(scores)
     # scores = np.expand_dims(scores, axis=1)
-    print(instances)
+    # print(instances)
     lab_img = np.zeros(instances[0].shape, dtype=np.int32)
     for i, instance in enumerate(instances):
         lab_img = np.maximum(lab_img, instance * (i + 1))
