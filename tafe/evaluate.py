@@ -17,7 +17,7 @@ save_step = 8#20
 net_val_dir = '/content/brpnet/tafe/val/baseline_4fold_epoch8'
 
 # gts = np.load('/home/cong/workplace/kumar/gt.npy').astype(np.uint16)
-gts = np.load('/content/brp_data/gt.npy').astype(np.uint16)
+gts = np.load('/content/brp_data/gt.npy',allow_pickle=True).item()['segs'].astype(np.uint16)
 
 for itrain in range(ntrain):
     print(itrain)
