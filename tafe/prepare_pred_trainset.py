@@ -43,8 +43,8 @@ for imod in range(mod):
     imgs[:, imod] = (imgs[:, imod]/255.0 - norm_mean[imod])/norm_std[imod]
 ntrain = 4
 
-#net_name = 'baseline'+'_'+str(ntrain)+'fold_epoch'+str(MAX_epoch)
-net_name = 'tafe'+'_'+str(ntrain)+'fold_epoch'+str(MAX_epoch)
+net_name = 'baseline'+'_'+str(ntrain)+'fold_epoch'+str(MAX_epoch)
+# net_name = 'tafe'+'_'+str(ntrain)+'fold_epoch'+str(MAX_epoch)
 
 # Select From Trained Models
 # TAFE:
