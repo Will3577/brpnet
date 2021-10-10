@@ -11,7 +11,8 @@ from dataset import KumarDataset
 from custom import *
 from loss import dice_loss, smooth_truncated_loss, compute_loss_list
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+
 
 torch.set_num_threads(8)
 
@@ -33,7 +34,8 @@ dice_weight = 0.5
 lr_redecay = ReduceMaxLROnRestart(0.5)
 crop_size = 256
 
-train_data_loc = '/home/cong/workplace/kumar/'
+# train_data_loc = '/home/cong/workplace/kumar/'
+rain_data_loc = '/content/brp_data'
 
 ndata = 16#len(os.listdir(os.path.join(train_data_loc, 'Images')))
 ntrain = 4
