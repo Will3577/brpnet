@@ -28,6 +28,7 @@ for itrain in range(ntrain):
         for i in kfold_val_idx[itrain]:
             dmat = scio.loadmat(os.path.join(pred_dir, 'snapshot_'+str(i_cp), str(i)+'.mat'))
             print(i,'Start')
+            print(dmat)
             s = dmat['s']
             c = dmat['c']
             if len(s.shape)>2:
