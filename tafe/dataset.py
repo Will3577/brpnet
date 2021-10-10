@@ -37,6 +37,7 @@ class KumarDataset(torch.utils.data.Dataset):
         self.loc_head = loc_head
 
         self.imgs = np.load(os.path.join(loc_head, 'data_after_stain_norm_ref1.npy'))
+        print(list,type(list))
         # self.imgs = self.imgs[list]
         self.imgs = [self.imgs[i] for i in list]
 
