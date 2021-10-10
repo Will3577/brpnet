@@ -27,6 +27,7 @@ for itrain in range(ntrain):
         ajis = []
         for i in kfold_val_idx[itrain]:
             dmat = scio.loadmat(os.path.join(pred_dir, 'snapshot_'+str(i_cp), str(i)+'.mat'))
+            print(i,'Start')
             s = dmat['s']
             c = dmat['c']
             if len(s.shape)>2:
@@ -35,7 +36,7 @@ for itrain in range(ntrain):
                 c = np.reshape(c, [c.shape[1], c.shape[2]])
             lbl = post_proc(s-c, post_dilation_iter=2).astype(np.uint16)
             aji = get_fast_aji(remap_label(gts[i]), remap_label(lbl))
-            print(i, aji)
+            print(i, aji, "End")
             ajis.append(aji)
         avg_aji = np.array(ajis).mean()
         ajis_allcp.append(avg_aji)
