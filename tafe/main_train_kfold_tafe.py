@@ -35,7 +35,7 @@ lr_redecay = ReduceMaxLROnRestart(0.5)
 crop_size = 256
 
 # train_data_loc = '/home/cong/workplace/kumar/'
-rain_data_loc = '/content/brp_data'
+train_data_loc = '/content/brp_data'
 
 ndata = 16#len(os.listdir(os.path.join(train_data_loc, 'Images')))
 ntrain = 4
