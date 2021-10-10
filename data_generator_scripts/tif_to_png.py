@@ -14,9 +14,9 @@ import scipy.io
 import numpy as np
 from tempfile import TemporaryFile
 outfile = TemporaryFile()
-mat = scipy.io.loadmat('/Users/will/Downloads/MATLAB/data_generator_scripts/val/data_after_stain_norm_mm_ref1.mat')
+mat = scipy.io.loadmat('/Users/will/Downloads/MATLAB/data_generator_scripts/train_bnd.mat')
 print(type(mat))
-np.save('/Users/will/Downloads/MATLAB/data_generator_scripts/val/data_after_stain_norm_mm_ref1.npy', mat)
+np.save('/Users/will/Downloads/MATLAB/data_generator_scripts/bnd.npy', mat)
 
 
 
